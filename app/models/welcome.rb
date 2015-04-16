@@ -13,6 +13,7 @@ class Welcome
 	end
 
 	def self.star(query)
+		random = rand(5).to_i
 		name = Unirest.post("https://imdb.p.mashape.com/movie",
 		  	headers:{
 			    "X-Mashape-Key" => "cPJySWZolCmshX38jPrzJeawUuFLp1ML0DpjsnBhLd1ZrMjwBT",
@@ -21,7 +22,7 @@ class Welcome
 			  	},
 		  	parameters:{
 			    "searchTerm" => "#{query}"
-			  	}).body["result"]["cast"][0]["actor"]
+			  	}).body["result"]["cast"][random]["actor"]
 
 	end
 

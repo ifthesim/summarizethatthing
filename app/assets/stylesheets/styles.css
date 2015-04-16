@@ -1,5 +1,10 @@
 body {
+	font-family: 'Roboto Slab', serif;
+}
 
+h1,
+h2 {
+	font-weight: 700;
 }
 
 .info {
