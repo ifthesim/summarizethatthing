@@ -1,5 +1,6 @@
-<h1>Gif Summaries</h1>
+<h1>Summarize it in gifs!</h1>
 
+<div class="info">
 <%= form_tag("/", method: "get") do %>
   <%= label_tag(:query, "Search a title:") %>
   <%= text_field_tag(:query) %>
@@ -7,6 +8,19 @@
 <% end %>
 
 <% if params[:query] %>
-<p><%= @storyline %></p>
-<p><%= image_tag @gif %></p>
+<h2>What it's about:</h2>
+<em><%= @storyline %></em>
+
+<h2>Who's the star?</h2>
+<%= @star %>
+
+<h2>All you really need to see:</h2>
+<%= image_tag @summarygif %>
+</div>
+
+<div class="poster">
+<h2>Here's the poster!</h2>
+<%= image_tag @poster %>
+</div>
+
 <% end %>

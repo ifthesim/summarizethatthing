@@ -1,0 +1,15 @@
+body {
+
+}
+
+.info {
+	float: left;
+	display: inline-block;
+	max-width: 600px;
+}
+
+.poster {
+	float: right;
+	display: inline-block;
+	margin-right: 20px;
+}

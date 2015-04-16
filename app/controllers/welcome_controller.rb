@@ -4,23 +4,15 @@ class WelcomeController < ApplicationController
 		# secret_key = ENV['secret_key']
 
 		if params[:query]
-			random = rand(500).to_i
 			query = params[:query]
 
-			@storyline = Unirest.post("https://imdb.p.mashape.com/movie",
-	  	headers:{
-		    "X-Mashape-Key" => "cPJySWZolCmshX38jPrzJeawUuFLp1ML0DpjsnBhLd1ZrMjwBT",
-		    "Content-Type" => "application/x-www-form-urlencoded",
-		    "Accept" => "application/json"
-		  	},
-	  	parameters:{
-		    "searchTerm" => "#{query}"
-		  	}).body["result"]["storyline"]
+			@storyline = Welcome.storyline(query)
 
-			array = query.split
-			plus_query = array.join("+")
+			@star = Welcome.star(query)
 
-			@gif = HTTParty.get("http://api.giphy.com/v1/gifs/search?q=#{plus_query}&api_key=dc6zaTOxFJmzC&limit=500").parsed_response["data"][random]["images"]["original"]["url"]
+			@summarygif = Welcome.summarygif(query)
+
+			@poster = Welcome.poster(query)
 		  end
 	end
 
