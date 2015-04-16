@@ -1,0 +1,12 @@
+<h1>Gif Summaries</h1>
+
+<%= form_tag("/", method: "get") do %>
+  <%= label_tag(:query, "Search a title:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if params[:query] %>
+<p><%= @storyline %></p>
+<p><%= image_tag @gif %></p>
+<% end %>
